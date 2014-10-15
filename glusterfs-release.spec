@@ -29,7 +29,7 @@ priority=1
 
 [glusterfs-noarch-%{version}]
 name=GlusterFS is a clustered file-system capable of scaling to several petabytes.
-baseurl=http://download.gluster.org/pub/gluster/glusterfs3.4/LATEST/EPEL.repo/epel-$releasever/noarch
+baseurl=http://download.gluster.org/pub/gluster/glusterfs/3.4/LATEST/EPEL.repo/epel-$releasever/noarch
 enabled=1
 skip_if_unavailable=1
 gpgcheck=1
