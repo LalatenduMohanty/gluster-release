@@ -18,7 +18,7 @@ Repository files for the download.gluster.org releases.
 
 %build
 cat << EOF > glusterfs-%{version}.repo
-[glusterfs%{version}]
+[glusterfs-%{version}]
 name=GlusterFS is a clustered file-system capable of scaling to several petabytes.
 baseurl=http://download.gluster.org/pub/gluster/glusterfs/LATEST/EPEL.repo/epel-$releasever/$basearch/
 enabled=1
@@ -27,7 +27,7 @@ gpgcheck=1
 gpgkey=http://download.gluster.org/pub/gluster/glusterfs/LATEST/EPEL.repo/pub.key
 priority=1
 
-[glusterfs-noarch%{version}]
+[glusterfs-noarch-%{version}]
 name=GlusterFS is a clustered file-system capable of scaling to several petabytes.
 baseurl=http://download.gluster.org/pub/gluster/glusterfs/LATEST/EPEL.repo/epel-$releasever/noarch
 enabled=1
@@ -36,7 +36,7 @@ gpgcheck=1
 gpgkey=http://download.gluster.org/pub/gluster/glusterfs/LATEST/EPEL.repo/pub.key
 priority=1
 
-[glusterfs-source%{version}]
+[glusterfs-source-%{version}]
 name=GlusterFS is a clustered file-system capable of scaling to several petabytes. - Source
 baseurl=http://download.gluster.org/pub/gluster/glusterfs/LATEST/EPEL.repo/epel-$releasever/SRPMS
 enabled=0
