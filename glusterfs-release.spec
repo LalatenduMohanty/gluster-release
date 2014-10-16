@@ -1,6 +1,6 @@
-Name:		glusterfs-release
-Version:	3.5
-Release:	2.1%{?dist}
+Name:		gluster-release-35
+Version:	1.0
+Release:	1%{?dist}
 BuildArch:	noarch
 Summary:	Repository file for the download.gluster.org yum repo
 
@@ -17,8 +17,8 @@ Repository files for the download.gluster.org releases.
 
 
 %build
-cat << EOF > glusterfs-%{version}.repo
-[glusterfs-%{version}]
+cat << EOF > glusterfs.repo
+[glusterfs-3.5]
 name=GlusterFS is a clustered file-system capable of scaling to several petabytes.
 baseurl=http://download.gluster.org/pub/gluster/glusterfs/LATEST/EPEL.repo/epel-$releasever/$basearch/
 enabled=1
@@ -27,7 +27,7 @@ gpgcheck=1
 gpgkey=http://download.gluster.org/pub/gluster/glusterfs/LATEST/EPEL.repo/pub.key
 priority=1
 
-[glusterfs-noarch-%{version}]
+[glusterfs-noarch-3.5]
 name=GlusterFS is a clustered file-system capable of scaling to several petabytes.
 baseurl=http://download.gluster.org/pub/gluster/glusterfs/LATEST/EPEL.repo/epel-$releasever/noarch
 enabled=1
@@ -36,7 +36,7 @@ gpgcheck=1
 gpgkey=http://download.gluster.org/pub/gluster/glusterfs/LATEST/EPEL.repo/pub.key
 priority=1
 
-[glusterfs-source-%{version}]
+[glusterfs-source-3.5]
 name=GlusterFS is a clustered file-system capable of scaling to several petabytes. - Source
 baseurl=http://download.gluster.org/pub/gluster/glusterfs/LATEST/EPEL.repo/epel-$releasever/SRPMS
 enabled=0
@@ -48,14 +48,14 @@ EOF
 
 %install
 mkdir -p %{buildroot}/etc/yum.repos.d
-install -p -m 0644 glusterfs-%{version}.repo %{buildroot}%{_sysconfdir}/yum.repos.d/
+install -p -m 0644 glusterfs.repo %{buildroot}%{_sysconfdir}/yum.repos.d/
 
 
 %files
-%{_sysconfdir}/yum.repos.d/*
+%config(noreplace) %{_sysconfdir}/yum.repos.d/*
 
 %changelog
 
-* Wed Oct 15 2014 Kaleb S. KEITHLEY <kkeithle [at] redhat.com> 3.5-2.1
+* Wed Oct 15 2014 Kaleb S. KEITHLEY <kkeithle [at] redhat.com> 1.0-1
 - Initial packaging.
 
