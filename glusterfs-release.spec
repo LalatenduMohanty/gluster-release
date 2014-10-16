@@ -1,5 +1,5 @@
-Name:		gluster-release-35
-Version:	1.0
+Name:		gluster-release
+Version:	3.5
 Release:	1%{?dist}
 BuildArch:	noarch
 Summary:	Repository file for the download.gluster.org yum repo
