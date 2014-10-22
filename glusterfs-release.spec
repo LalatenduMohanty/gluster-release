@@ -7,7 +7,6 @@ Summary:	Repository file for the download.gluster.org yum repo
 Group:		System Environment/Base
 License:	GPLv2
 URL:		http://download.gluster.org/pub/gluster/glusterfs/
-Requires:	yum-plugin-priorities
 
 %description
 Repository files for the download.gluster.org releases.
@@ -25,7 +24,7 @@ enabled=1
 skip_if_unavailable=1
 gpgcheck=1
 gpgkey=http://download.gluster.org/pub/gluster/glusterfs/LATEST/EPEL.repo/pub.key
-priority=1
+priority=50
 
 [glusterfs-noarch-3.5]
 name=GlusterFS is a clustered file-system capable of scaling to several petabytes.
@@ -34,7 +33,7 @@ enabled=1
 skip_if_unavailable=1
 gpgcheck=1
 gpgkey=http://download.gluster.org/pub/gluster/glusterfs/LATEST/EPEL.repo/pub.key
-priority=1
+priority=50
 
 [glusterfs-source-3.5]
 name=GlusterFS is a clustered file-system capable of scaling to several petabytes. - Source
@@ -43,7 +42,7 @@ enabled=0
 skip_if_unavailable=1
 gpgcheck=1
 gpgkey=http://download.gluster.org/pub/gluster/glusterfs/LATEST/EPEL.repo/pub.key
-priority=1
+priority=50
 EOF
 
 %install
@@ -53,6 +52,11 @@ install -p -m 0644 glusterfs.repo %{buildroot}%{_sysconfdir}/yum.repos.d/
 
 %files
 %config(noreplace) %{_sysconfdir}/yum.repos.d/*
+
+%postin
+echo "Please review your system and install the yum-plugin-priorities RPM"
+echo "as necessary."
+echo "For more information please see http://www.gluster.org/pathto.html"
 
 %changelog
 
